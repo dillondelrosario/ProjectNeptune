@@ -34,9 +34,6 @@ with open('telemetry_packets.bin', 'rb') as telemetry_file:
         length, index = struct.unpack('<II', header)  # unpacks the header to get length and index
         chunk = telemetry_file.read(length)  # reads the chunk data based on the length
 
-
-        #DONT REALLY UNDERSTAND, WRITTEN BY VS CODE
-
 packet_original = b''.join(telemetry_packets[i] for i in sorted(telemetry_packets)) #recombines packets
 original = packet_original.decode('utf-8') #decodes the recombined packets
 print(original)  #verifies everything is correct
