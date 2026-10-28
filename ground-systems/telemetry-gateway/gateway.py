@@ -2,6 +2,7 @@ import socket
 
 ip = socket.gethostname() #New feature is adding ip and port at the top to easily change in the future
 port = 12345
+
 size = 99999999 #Just to be safe on the size of data
 #Also excluded loopback ip that was giving issues
 
@@ -12,6 +13,8 @@ server.listen()
 print("CONNECTION LINE OPEN")
 
 con, addr = server.accept()
+
+
 #start of checksum
 k = 15
 
@@ -41,7 +44,7 @@ def findReceiverchecksum(data, k, checksum):
             receiverchecksum += '0'
         else:
             receiverchecksum += '1'
-        return receiverchecksum
+    return receiverchecksum
 #End checksum
 
 
